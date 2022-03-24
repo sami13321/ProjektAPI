@@ -12,8 +12,11 @@ namespace Bilfabrik.Services
 
         List<User> Add(User NewUser);
 
+        EmployeeClass GetEmployeeClass(int id);
 
-       
+        List<User> DeleteUserById(int id);
+
+
 
     }
 }

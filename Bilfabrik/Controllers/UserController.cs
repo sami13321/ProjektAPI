@@ -38,8 +38,17 @@ namespace Bilfabrik.Controllers
             return _userService.GetUserById(id);
         }
 
-        [HttpGet("{employeeType}")]
+        [HttpGet("/employeeType/{id}")]
+        public ActionResult<EmployeeClass> GetEmployee (int id)
+        {
+            return _userService.GetEmployeeClass(id);
+        }
 
+        [HttpDelete("/deluser")]
+        public ActionResult<List<User>> DeleteUser(int id)
+        {
+            return _userService.DeleteUserById(id);
+        }
         
 
     }
