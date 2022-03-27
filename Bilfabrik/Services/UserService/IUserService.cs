@@ -10,7 +10,7 @@ namespace Bilfabrik.Services
 
         User GetUserById(int id);
 
-        List<User> Add(User NewUser);
+        bool Add(User NewUser);
 
         EmployeeClass GetEmployeeClass(int id);
 

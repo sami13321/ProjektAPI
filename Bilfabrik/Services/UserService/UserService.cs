@@ -17,12 +17,29 @@ namespace Bilfabrik.Services
 
         public User c { get; private set; }
 
-        public List<User> Add(User NewUser)
+        public bool Add(User NewUser)
         {
             _context.Users.Add(NewUser);
+            
+
+            if (NewUser.Employee == EmployeeClass.Montör)
+            {
+
+                Montör NewUser1 = new Montör();
+                NewUser1.Id = NewUser.Id;
+                NewUser1.Namn = NewUser.Name;
+                NewUser1.Bana = 0;
+                NewUser1.Lag = 0;
+
+                _context.Montörer.Add(NewUser1);
+               
+
+            }
             _context.SaveChanges();
-            return _context.Users.ToList();
+            return true;
         }
+
+       
 
         public List<User> GetallUsers()
         {

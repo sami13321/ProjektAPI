@@ -1,4 +1,5 @@
-﻿using Bilfabrik.Services.MontörService;
+﻿using Bilfabrik.Models;
+using Bilfabrik.Services.MontörService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Bilfabrik.Controllers
@@ -12,6 +13,14 @@ namespace Bilfabrik.Controllers
         public MontörController(IMontörService montörService)
         {
             _MontörService = montörService;
+        }
+
+        [HttpPut("/addmontör")]
+
+        public ActionResult<bool> Add(Montör NewUser)
+        {
+            _MontörService.Add(NewUser);
+            return true;
         }
     }
 }

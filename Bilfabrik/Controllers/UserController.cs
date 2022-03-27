@@ -27,7 +27,7 @@ namespace Bilfabrik.Controllers
 
         [HttpPost("/adduser")]
         
-        public ActionResult<List<User>> AddUser (User newUser)
+        public ActionResult<bool> AddUser (User newUser)
         {
             return _userService.Add(newUser);
         }

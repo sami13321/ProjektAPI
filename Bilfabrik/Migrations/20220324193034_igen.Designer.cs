@@ -23,9 +23,7 @@ namespace Bilfabrik.Migrations
             modelBuilder.Entity("Bilfabrik.Models.Montör", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                        .HasColumnType("int");
 
                     b.Property<int>("Bana")
                         .HasColumnType("int");
