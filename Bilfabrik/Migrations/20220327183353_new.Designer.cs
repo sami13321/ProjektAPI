@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bilfabrik.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220327142402_newmigration")]
-    partial class newmigration
+    [Migration("20220327183353_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,6 +35,9 @@ namespace Bilfabrik.Migrations
 
                     b.Property<string>("Namn")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("id1")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

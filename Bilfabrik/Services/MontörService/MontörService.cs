@@ -21,7 +21,7 @@ namespace Bilfabrik.Services.MontörService
             {
                 if (user.Employee == EmployeeClass.Montör)
                 {
-                    NewUser.Id = user.Id;
+                    NewUser.id1 = user.Id;
                     NewUser.Namn = user.Name;
                     _context.Montörer.Add(NewUser);
                     _context.SaveChanges();

@@ -34,6 +34,9 @@ namespace Bilfabrik.Migrations
                     b.Property<string>("Namn")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("id1")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Montörer");
