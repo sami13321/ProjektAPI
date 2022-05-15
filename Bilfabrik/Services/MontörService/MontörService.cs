@@ -2,8 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
-namespace Bilfabrik.Services.MontörService
+namespace Bilfabrik.Services
 {
     public class MontörService : IMontörService
     {
@@ -14,27 +15,52 @@ namespace Bilfabrik.Services.MontörService
             _context = context;
         }
 
-        public bool Add(Montör NewUser)
-        {
-            List<User> användare = _context.Users.ToList();
-            foreach (var user in användare)
-            {
-                if (user.Employee == EmployeeClass.Montör)
-                {
-                    NewUser.id1 = user.Id;
-                    NewUser.Namn = user.Name;
-                    _context.Montörer.Add(NewUser);
-                    _context.SaveChanges();
-                  
-                }
-            }
 
+
+        public Montör GetMontörbyId(int id)
+        {
+            return _context.Montörer.Find(id);
+
+        }
+
+
+        public bool DeleteMontör(int id)
+        {
+            var montör = GetMontörbyId(id);
+            if (montör != null)
+            {
+                _context.Montörer.Remove(montör);
+                _context.SaveChanges();
+            }
             return true;
         }
 
 
+        public bool UpdateMontör(int id, Montör user)
+        {
+            var montör = GetMontörbyId(id);
+            if (montör != null)
+            {
+                montör.Bana = user.Bana;
+                montör.Lag = user.Lag;
+                montör.Name = user.Name;
+                _context.Montörer.Update(montör);
+                _context.SaveChanges();
+            }
+            return true;
+        }
 
 
+        public List<Montör> GetAllMontörer()
+        {
+            return _context.Montörer.ToList();
+        }
+
+        //get montör by name
+        public Montör GetMontörByName(string name)
+        {
+            return _context.Montörer.Where(m => m.Name == name).FirstOrDefault();
+        }
 
 
 

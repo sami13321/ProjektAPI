@@ -1,5 +1,7 @@
 using Bilfabrik.Models;
 using Bilfabrik.Services;
+using Bilfabrik.Services.LagledareService;
+using Bilfabrik.Services.StämpelService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -38,6 +40,9 @@ namespace Bilfabrik
             });
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IMontörService, MontörService>();
+            services.AddScoped<ILagledareService, LagledareService>();
+            services.AddScoped<IStämpelService, StämpelService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

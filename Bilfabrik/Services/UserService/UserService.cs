@@ -21,25 +21,24 @@ namespace Bilfabrik.Services
         {
             _context.Users.Add(NewUser);
             
+;
 
             if (NewUser.Employee == EmployeeClass.Montör)
             {
 
                 Montör NewUser1 = new Montör();
-                NewUser1.Id = NewUser.Id;
-                NewUser1.Namn = NewUser.Name;
+                NewUser1.Name = NewUser.Name;
                 NewUser1.Bana = 0;
                 NewUser1.Lag = 0;
 
                 _context.Montörer.Add(NewUser1);
-               
-
+                
             }
+
             _context.SaveChanges();
             return true;
         }
 
-       
 
         public List<User> GetallUsers()
         {
@@ -51,6 +50,7 @@ namespace Bilfabrik.Services
         public User GetUserById(int id)
         {
             return _context.Users.FirstOrDefault(c => c.Id == id);
+            
         }
 
         public EmployeeClass GetEmployeeClass(int id)

@@ -1,10 +1,20 @@
 ﻿using Bilfabrik.Models;
+using System.Threading.Tasks;
 
-namespace Bilfabrik.Services.MontörService
+namespace Bilfabrik.Services
 {
     public interface IMontörService
     {
 
-        bool Add(Montör NewUser);
+
+        Montör GetMontörbyId(int id);
+
+
+        bool DeleteMontör(int id);
+
+        bool UpdateMontör(int id, Montör user);
+
+
+
     }
 }
